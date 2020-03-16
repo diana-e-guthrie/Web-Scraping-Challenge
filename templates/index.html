@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mars!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape"><role="button">Scrape the News</a></p>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-8">
+          <h3 class="heading"> Latest Mars News</h3>
+          <p> {{mars.news.news_title}} </p>
+          <p> {{mars.news.news_p}} </p>
+        </div>
+        <div class="col-sm-4">
+          <h2> Mars Facts</h2>
+          <p>{{ mars.facts | safe}}</p>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-8">
+        <h4> Weather on Mars </h4>
+        <p> {{mars.weather }} </p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <h5> Explore the Four Hemispheres of Mars:</h5>
+      <ul style="list-style: none;">
+
+        <!-- Loop through the dictionary -->
+   <div class="row">
+        
+        {% for hemisphere in mars.hemispheres %}
+          <div class="col-md-3">
+          <h6> {{ hemisphere.title}} </h6>
+          <img src="{{hemisphere.img_url}}" class="img-responsive">
+          </div>  
+        {% endfor %}
+      
+  </div>  
+      </ul>
+
+    </div>
+    <div class="col-md-8">
+     <h2 class="heading"> Featured Image </h2> 
+      <img src="{{ mars.image }}" class="img-responsive">
+    </div>
+    </div>
+  
+  
+</body>
+</html>
